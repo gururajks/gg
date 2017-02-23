@@ -5,6 +5,7 @@ var app = express();
 
 var db = mongoose.connect('mongodb://heroku_zmcpxtsp:ikg9t6o2a99460tntij5vv3s7o@ds155727.mlab.com:55727/heroku_zmcpxtsp');
 
+app.set('port', (process.env.PORT || 5000));
 var guides = require('./models/guidesSchema')
 var guideRouter = require('./routes/routes.js')(guides);
 
@@ -17,6 +18,6 @@ app.get('/', function(request, response) {
     response.json({ welcome: 'This is My Good Guide API!' });
 });
 
-app.listen(5000, function() {
-    console.log('Server running');
+app.listen(app.get('port'), function() {
+    console.log('Server running:' + app.get('port'));
 });
