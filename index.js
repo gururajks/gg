@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var app = express();
 
-var db = mongoose.connect('mongodb://127.0.0.1:27017/goodguidedb');
+var db = mongoose.connect('mongodb://heroku_zmcpxtsp:ikg9t6o2a99460tntij5vv3s7o@ds155727.mlab.com:55727/heroku_zmcpxtsp');
 
 var guides = require('./models/guidesSchema')
 var guideRouter = require('./routes/routes.js')(guides);
