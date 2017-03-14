@@ -1,4 +1,5 @@
 var express = require('express');
+var passport = require('passport');
 
 var routes = function(app, guides) {
 
@@ -8,6 +9,18 @@ var routes = function(app, guides) {
         res.render('index', {
             title: 'Home'
         });
+    });
+
+    app.post('/login', function(req, res, next) {
+        var auth = passport.authenticate('local', function(err, user) {
+            if (err) { return next(err); }
+            if (!user) { res.send({ sucess: false }); }
+            req.logIn(user, function(err) {
+                if (err) { return next(err); }
+                res.send({ sucess: true, user: user });
+            });
+        });
+        auth(req, res, next);
     });
 
     guideRouter.route('/guides')

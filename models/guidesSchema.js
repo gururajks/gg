@@ -12,6 +12,8 @@ var guideModel = new Schema({
             type: String
         }
     },
+    username: { type: String },
+    password: { type: String },
     phone: { type: String },
     role: { type: String }
 });
