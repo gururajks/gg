@@ -1,19 +1,24 @@
 {
-    "name": "angularproject",
-    "version": "1.0.0",
-    "description": "Good Guide API",
-    "main": "index.js",
-    "scripts": {
-        "start": "node index.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "Gururaj Sridhar",
-    "license": "ISC",
-    "dependencies": {
-        "body-parser": "^1.16.1",
-        "express": "^4.14.1",
-        "gulp": "^3.9.1",
-        "gulp-nodemon": "^2.2.1",
-        "mongoose": "^4.8.2"
-    }
+  "name": "angularproject",
+  "version": "1.0.0",
+  "description": "Good Guide API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gururaj Sridhar",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.3",
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
+    "jade": "^1.11.0",
+    "mongoose": "^4.8.2",
+    "morgan": "^1.8.1",
+    "nib": "^1.1.2",
+    "stylus": "^0.54.5"
+  }
 }

@@ -1,8 +1,15 @@
 var express = require('express');
 
-var routes = function(guides) {
+var routes = function(app, guides) {
 
     var guideRouter = express.Router();
+
+    app.get('/', function(req, res) {
+        res.render('index', {
+            title: 'Home'
+        });
+    });
+
     guideRouter.route('/guides')
         .post(function(req, res) {
             var guide = new guides(req.body);
