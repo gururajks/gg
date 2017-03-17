@@ -1,5 +1,6 @@
 var express = require('express');
 var mongoose = require('mongoose');
+var ObjectId = require('mongoose').Schema.ObjectId;
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var app = express();
@@ -17,29 +18,31 @@ require('./models/mongoose.js');
 //authenticate using the passport middelware
 passport.use(new LocalStrategy(
     function(username, password, done) {
-        guides.findOne({ username: username }).exec(function(err, user) {
+        console.log(username);
+        guides.findOne({ username: username, password: password }).exec(function(err, user) {
             if (user) {
                 return done(null, user);
             } else {
                 return done(null, false);
             }
-
         });
     }
 ));
 
+//serialize the passport user
 passport.serializeUser(function(user, done) {
     if (user) {
         done(null, user._id);
     }
 });
 
+//deserialize the passport size
 passport.deserializeUser(function(id, done) {
-    User.findOne({ _id, id }).exec(function(err, user) {
+    guides.findOne({ _id: ObjectId(id) }).exec(function(err, user) {
         if (user) {
             return done(null, user);
         } else {
-            return done(null, fase);
+            return done(null, false);
         }
     });
 });
